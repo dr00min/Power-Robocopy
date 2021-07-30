@@ -1,11 +1,11 @@
-########################################################
-######## Only change the next 3 variables ##############
-########################################################
+######################################################################
+######## PER SERVER Only change the next 3 variables #################
+######################################################################
 $foldername		=	'Applications'
 $svrname		=	'File-Server-01'
 $targetname		=	'Backup-Server-01'
 
-############ STATIC VARIABLES ##########################
+############ CROSS-INFRASTRUCTURE VARIABLES ##########################
 
 $targetpath 	= 	'c:\Robocopy\' + $svrname + '-to-'+ $targetname +'-'+  $foldername + '.bat'
 $rsltpath 		= 	Get-Content -raw -Path \\Result-Server-01\d$\IT\Robocopy\Robocopy-Reporting\robovar1.txt
@@ -18,12 +18,12 @@ $info			=	"" | Select Robotask,Timestamp,Result
 $info.Robotask	= 	$svrname + $targetname + $foldername
 $info.Timestamp	= 	$(Get-Date -Format $dateformat)
 
-##################### BEGIN BACKUP ######################
+##################### BEGIN BACKUP ###################################
 
 #run batch file
 start-process $targetpath
 
-############## POST-BACKUP TASKS ########################
+############## POST-BACKUP TASKS #####################################
 
 #checks exit/return code and decides if SUCCESS or FAILURE
 if ($lastexitcode -le 3)
@@ -45,4 +45,4 @@ if ($lastexitcode -le 3)
 			$info | Export-CSV -Append -NoTypeInformation -Path $csvpath
 	}
 
-################ END OF ALL #############################
+################ END OF ALL #########################################
