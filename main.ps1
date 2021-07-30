@@ -7,7 +7,7 @@ $targetname		=	'Backup-Server-01'
 
 ############ CROSS-INFRASTRUCTURE VARIABLES ##########################
 
-$targetpath 	= 	'c:\Robocopy\' + $svrname + '-to-'+ $targetname +'-'+  $foldername + '.bat'
+$targetpath 		= 	'c:\Robocopy\' + $svrname + '-to-'+ $targetname +'-'+  $foldername + '.bat'
 $rsltpath 		= 	Get-Content -raw -Path \\Result-Server-01\d$\IT\Robocopy\Robocopy-Reporting\robovar1.txt
 $fullname		=	$svrname + '-to-'+ $targetname +'-'+  $foldername
 $dateformat		=	'dd/MM/yyyy_HH:mm'
@@ -15,8 +15,8 @@ $passtext		=	'Robocopy succeeded with exit code:'
 $failtext		=	'Robocopy failed with exit code:'
 $csvpath		=	Get-Content -raw -Path \\Result-Server-01\d$\IT\Robocopy\Robocopy-Reporting\robovar2.txt
 $info			=	"" | Select Robotask,Timestamp,Result
-$info.Robotask	= 	$svrname + $targetname + $foldername
-$info.Timestamp	= 	$(Get-Date -Format $dateformat)
+$info.Robotask		= 	$svrname + $targetname + $foldername
+$info.Timestamp		= 	$(Get-Date -Format $dateformat)
 
 ##################### BEGIN BACKUP ###################################
 
