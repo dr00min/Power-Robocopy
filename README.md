@@ -1,5 +1,5 @@
 # Power-Robocopy
-A powershell script to manage/control multiple Robocopy automated tasks.
+A powershell script to manage/control your infrastructure's Robocopy automated tasks.
 
 Features:
 - Easily track all of your infrastructure's Robocopy results
